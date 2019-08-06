@@ -1,0 +1,132 @@
+@import '../sass/base/_normalize.scss';
+@import '../sass/utils/variables.scss';
+@import '../sass/utils/_mixins.scss';
+@import '../sass/utils/_placeholder.scss';
+.contextmenu-wrap {
+    position: absolute;
+    width: 180px;
+    box-shadow:0px 0px 5px rgba(0,0,0,0.08);
+    border-radius:2px;
+    @extend %box-sizing;
+    background-color: $white;
+    font-size: 14px;
+    color: #595959;
+    z-index: 101;
+    p {
+        position: relative;
+        width: 100%;
+        padding: 0 12px;
+        line-height: 38px;
+        height: 38px;
+        @extend %box-sizing;
+        background-color: #FAFAFA;
+        border-bottom: 1px solid #D9D9D9;
+        color: #262626;
+    }
+    ul {
+        width: 100%;
+        position: relative;
+        padding: 5px 0px;
+        @extend %box-sizing;
+        li {
+            position: relative;
+            dl {
+                dt {
+                    position: relative;
+                    padding: 5px 12px;
+                    font-size: 12px;
+                    @extend %box-sizing;
+                    cursor: default;
+                    color: #8C8C8C;
+                }
+                dd {
+                    position: relative;
+                    a {
+                        line-height: 30px;
+                        display: flex;
+                        padding: 0 12px 0 22px;
+                        @extend %box-sizing;
+                        color: #595959;
+                        &:hover {
+                            background-color: #F5F5F5;
+                            > i{
+                                color: $main-color;
+                            }
+                            span {
+                                color: $main-color;
+                                &+i {
+                                    color: #595959;
+                                }
+                            }
+                        }
+                        i {
+                            @extend %iconfont;
+                        }
+                        > i {
+                            padding-right: 10px;
+                            font-size: 14px;
+                            color: #595959;
+                        }
+                        span {
+                            width: 100%;
+                            @include ell(false);
+                            & + i{
+                                padding-right: 0;
+                            }
+                        }
+                    }
+                    ul {
+                        display: none;
+                        position: absolute;
+                        left: 100%;
+                        top: 0;
+                        box-shadow:0px 0px 5px rgba(0,0,0,0.08);
+                        border-radius:2px;
+                        background-color: $white;
+                    }
+                    &:hover {
+                        & > ul{
+                            display: block;
+                        }
+                    }
+                    &.invalid {
+                        a {
+                            cursor: not-allowed;
+                            span,i {
+                                color: #BFBFBF;
+                                & + i{
+                                    color: #BFBFBF;
+                                }
+                            }
+                        }
+                        & > ul{
+                            display: none;
+                        }
+                    }
+                }
+            }
+            &+li {
+                margin-top: 10px;
+                &::before {
+                    position: absolute;
+                    left: 22px;
+                    display: block;
+                    content: '';
+                    top: -5px;
+                    height: 1px;
+                    width: calc(100% - 22px);
+                    background-color: #D9D9D9;
+                }
+            }
+        }
+    }
+}
+
+.contextnemu-mask {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}

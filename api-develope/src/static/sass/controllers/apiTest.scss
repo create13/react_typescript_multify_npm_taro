@@ -1,0 +1,289 @@
+@import '../utils/_variables';
+@import '../utils/mixins';
+@import '../base/normalize';
+.api-container {
+    white-space: initial;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top:0 ;
+    box-sizing: border-box;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .apitest-content {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        display: flex;
+    }
+    .prompt-info {
+        width: 100%;
+        height: 100px;
+        margin-top: 30px;
+        text-align: center;
+    }
+    .content-left {
+        width: 240px;
+        height: 100%;
+        .menu-content {
+            width: 100%;
+            height: 100%;
+            .menu {
+                width: 100%;
+                font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+                >li {
+                    width: 100%;
+                    > div {
+                        >div {
+                            width: 100%;
+                            line-height: 40px;
+                            padding: 0  15px;
+                            padding-left: 12px;
+                            box-sizing: border-box;
+                            font-size: 14px;
+                            font-weight: bold;
+                            margin: 4px 0;
+                            color: #3089dc;
+                            border-bottom: 1px solid #c2c2c2;
+                        }
+                        >ul {
+                            li {
+                                width: 100%;
+                                a {
+                                    display: block;
+                                    line-height: 40px;
+                                    font-size: 14px;
+                                    padding: 4px 15px 5px 15px;
+                                    box-sizing: border-box;
+                                    color: rgba(0, 0, 0, 0.65);
+                                    p {
+                                        @include ell(false);
+                                        line-height: 20px;
+                                        color: grey;
+                                    }
+                                    &.selected {
+                                        color: #3089dc;
+                                        background-color: #eff1f3;
+                                        p:first-child {
+                                            color: #3089dc;
+                                        }
+                                    }
+                                    &:hover {
+                                        color: #3089dc;
+                                        p:first-child {
+                                            color: #3089dc;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            } 
+        }
+    }
+    .content-right {
+        flex: 1;
+        padding: 10px;
+        display: flex;
+        box-sizing: border-box;
+        background-color: #f0f2f5;
+        overflow: hidden;
+        .main{
+            width: 100%;
+            .main-header{
+                text-align: center;
+                padding: 25px 0;
+                color: red;
+                font-size: 16px;
+            }
+            .main-content{
+                background: #fff;
+                display: flex;
+                font-family: Helvetica Neue For Number,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif;
+                //左侧
+                .left-field {
+                    width: 350px;
+                    dl {
+                        dt {
+                            padding-right: 5px;
+                            width: 100px;
+                            position: relative;
+                            label {
+                                padding-right: 10px;
+                                width: 100%;
+                                display: inline-flex;
+                                flex-wrap: wrap;
+                                word-break:break-all;
+                                &::after {
+                                    position: absolute;
+                                    right: 4px;
+                                    top: 4px;
+                                }
+                            }
+                        }
+                        dd {
+                            flex: 1;
+                            padding-left: 5px;
+                        }
+                    }
+                }
+                // 右侧
+                .result-wrap{
+                    flex: 1;
+                }
+                // 左侧列表样式
+                .left-field,.result-wrap{
+                    font-size: 14px;
+                    color: #666;
+                    dl{
+                        display: flex;
+                        margin-bottom: 16px;
+                        dt{
+                            padding-right: 5px;
+                            vertical-align: top;
+                            line-height: 28px;
+                            // 必填小红点
+                            &.mandatory{
+                                
+                                label::after{
+                                    content: "*";
+                                    color: #f23c3c;
+                                    margin-left: 4px;
+                                }
+                            }
+                        }
+                        dd{
+                            width: 75%;
+                            line-height: 28px;
+                            select, input[type='text']{
+                                vertical-align: middle;
+                                box-sizing: border-box;
+                                width: 200px;
+                                height: 26px;
+                                font-size: 12px;
+                                padding: 0 8px;
+                                border-radius: 3px;
+                                color: #666;
+                                border: 1px solid #c5c8d3;
+                            }
+                            input[type='radio'] {
+                                vertical-align: middle;
+
+                            }
+                            label+label {
+                                margin-left: 5px;
+                            }
+                            span{
+                                >a{
+                                    vertical-align: middle;
+                                    color: #108ee9;
+                                    margin-left: 10px;
+                                    font-size: 12px;
+                                    &:link {
+                                        color: #269bff;
+                                    }
+                                    &:visited {
+                                        color: #1270a8;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    hr{
+                        box-sizing: border-box;
+                        width: 75%;
+                        margin: 0 auto 16px;
+                        border-top: 0px solid #e7e7e7;
+                    }
+                    p{
+                        margin-bottom: 10px;
+                        margin-left: 120px;
+                        .red-color{
+                            color: red;
+                        }
+                    }
+                }
+                .btn{
+                    position: relative;
+                    display: inline-block;
+                    color: #fff;
+                    border-style: solid;
+                    background-color: #269bff;
+                    border-color: transparent;
+                    border-radius: 3px;
+                    padding: 0 12px;
+                    height: 28px;
+                    line-height: 26px;
+                    font-size: 12px;
+                    border-width: 1px;
+                    transition: all .3s ease-out;
+                    &:hover{
+                        color: #fff;
+                        background-color: #1b84c3;
+                        border-color: transparent;
+                        text-decoration: none;
+                    }
+                }
+                //特殊form
+                .special{
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    dl{
+                        flex: 1;  
+                        dt{
+                            box-sizing: border-box;
+                            text-align: right;
+                            width: 12.5%;
+                            max-width: 12.5%;
+                            padding-right: 12px;
+                        }
+                        dd{
+                            box-sizing: border-box;
+                            -ms-flex: 0 0 87.5%;
+                            flex: 0 0 87.5%;
+                            width: 87.5%;
+                            max-width: 87.5%;
+                            border: 1px solid #c5c8d3;
+                            border-radius: 2px;
+                            .panel{
+                                display: flex;
+                                flex-direction: column;
+                                .panel-header{
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 9px 11px;
+                                    border-bottom: 1px solid #ededed;
+                                    select{
+                                        width: 100px;
+                                        background: #efefef;
+                                        border: none;
+                                        color: #ccced3;
+                                    }
+                                }
+                                .panel-content{
+                                    flex: 1;
+                                    padding: 10px;
+                                    box-sizing: border-box;
+                                    word-break: break-all;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .right-content {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            overflow-y: auto;
+        }
+    }
+}
+

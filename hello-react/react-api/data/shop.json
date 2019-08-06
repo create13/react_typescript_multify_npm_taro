@@ -1,0 +1,25 @@
+{
+    "success_code": 200,
+    "message": [
+        {
+            "id": 1,
+            "name": "全家",
+            "location": "盛夏路500弄"
+        },
+        {
+            "id": 2,
+            "name": "劳勤",
+            "location": "盛夏路500弄"
+        },
+        {
+            "id": 3,
+            "name": "麦当劳",
+            "location": "广兰路"
+        },
+        {
+            "id": 4,
+            "name": "肯德基",
+            "location": "民生路"
+        }
+    ]
+}

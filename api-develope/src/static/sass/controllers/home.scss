@@ -1,0 +1,401 @@
+@import '../utils/_variables';
+@import '../utils/mixins';
+@import '../base/normalize';
+.container {
+    white-space: initial;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top:0 ;
+    padding: 0 15px 40px;
+    box-sizing: border-box;
+    background-color: white;
+    overflow: auto;
+    .header {
+        font-size: 28px;
+        color: #333;
+        line-height: 40px;
+        margin: 20px 0 10px;
+        font-weight: 700;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        h4 {
+            font-size: 28px;
+            color: #333;
+            font-weight: 700;
+        }
+        .page-count {
+            padding-right: 15px;
+            top: inherit;
+            position: inherit;
+            text-align: right;
+            color: #999;
+            font-size: 12px;
+            .page-count .times {
+                margin-left: 15px;
+            }
+        }
+    }
+    .page-container {
+        color: #333;
+        display: block;
+        word-wrap: break-word;
+        overflow: hidden;
+        line-height: 1.7;
+        font-size: 14px;
+        h1 ,h2{
+            font-size: 28px;
+            margin: 28px 0;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        p {
+            white-space: initial;
+            color: #3d4145;
+            font-size: 14px;
+            line-height: 24px;
+            margin: 0;
+            margin-bottom: 10px;
+            word-wrap: break-word;
+            word-break: break-all;
+            font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+        }
+        .img-coho {
+            width: 70%;
+        }
+    }
+    .ClaimList-wrap {
+        .ClaimList-box {
+            margin-top: 5px;
+            .ClaimList-title {
+                user-select: none;
+                position: relative;
+                font-weight: 600;
+                color: #333;
+                height: 40px;
+                line-height: 40px;
+                font-size: 20px;
+                text-indent: 10px;
+                position: relative;
+                cursor: pointer;
+                background-color: transparent;
+                border-bottom: 1px solid #ddd;
+                &:hover {
+                    background-color: #f5f5f5;
+                }
+                h2 {
+                    font-size: 20px;
+                    color: rgba(0,0,0,.85);
+                    font-weight: 500;
+                }
+                .flex-triangle {
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    _border-style: dotted;
+                    border-width: 5px;
+                    border-color: #666 transparent transparent;
+                    top: 18px;
+                    right: 13px;
+                    &.left {
+                        _border-style: dotted;
+                        border-color: transparent #666 transparent transparent;
+                    }
+                }
+            }
+            .ClaimList-content {
+                padding: 10px 0;
+                .table-title {
+                    height: 30px;
+                    color: #202f40;
+                    font-size: 16px;
+                    line-height: 28px;
+                    margin: 5px;
+                    font-weight: 500;
+                    padding-left: 2px;
+                }
+                .table-content {
+                    table {
+                        width: 100%;
+                        border-collapse: separate;
+                        border-spacing: 0;
+                        text-align: left;
+                        border-radius: 4px 4px 0 0;
+                        overflow: hidden;
+                        border-top: 1px solid #d4d9e5;
+                        border-left: 1px solid #d4d9e5;
+                        tr {
+                            th ,td{
+                                padding: 10px 8px;
+                                word-break: break-all;
+                                background-color: #ebeef0;
+                                border-bottom: 1px solid #d4d9e5;
+                                border-right: 1px solid #d4d9e5;
+                                min-width: 100px;
+                            }
+                            td {
+                                font-size: 12px;
+                                color: rgba(0,0,0,.65);
+                                padding: 16px 8px;
+                                background-color: #fff;
+                                a {
+                                    color: #108ee9;
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
+                                }
+                            }
+                        }
+                        tbody >tr{
+                            &:hover {
+                                td {
+                                    background-color: rgb(236, 246, 253);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .tab-wrap {
+        padding: 10px 0;
+        box-sizing: border-box;
+        .btn-border {
+            display: inline-block;
+            background: none;
+            border: 1px solid #0089cd;
+            color: #0089cd;
+            border-radius: 2px;
+            margin-right: 10px;
+            padding: 0px 15px;
+        }
+        .tab-container{
+            box-sizing: border-box;
+            border: 1px solid #d9d9d9;
+            .nav-tab {
+                display: flex;
+                background-color: #ebeef0;
+                ul {
+                    display: flex;
+                    li {
+                        span {
+                            position: relative;
+                            cursor: pointer;
+                            display: block;
+                            height: 34px;
+                            line-height: 34px;
+                            box-sizing: border-box;
+                            padding: 0 25px;
+                            background-color: #f9f9f9; 
+                            border-right: 1px solid #d9d9d9;
+                            border-bottom: 1px solid #d9d9d9;
+                            &:hover {
+                                color: #108ee9;
+                            }
+                        }
+                        &.selected span{
+                            color: #108ee9;
+                            background-color: white;
+                            border-bottom-color: transparent;
+                            &::before {
+                                content: '';
+                                position: absolute;
+                                width: 100%;
+                                height: 2px;
+                                top: 0;
+                                left: 0;
+                                background-color: #108ee9;
+                            }
+                        }
+                    }
+                }
+            }
+            .tab-content {
+                min-height: 200px;
+                display: none;
+                &.selected {
+                    display: block;
+                }
+            }
+        }
+        
+    }
+    .content-container{
+        >div{
+            font-size: 14px;
+            font-family: 'PingFang SC';
+            color: #393939;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+            line-height: 1.75;
+            white-space: pre-wrap;
+            word-break: normal;
+            >a{
+                span{
+                    color: #003884;
+                    text-decoration: underline;
+                }
+            }
+            >em{
+                font-size: 14px;
+                font-weight: bold;
+            }
+            >span{
+                display: inline-block;
+                padding: 15px 0;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            >img{
+                width: 620px;
+                cursor: pointer;
+                margin-top: 8px;
+                padding: 5px 0;
+            }
+            code{
+                font-family: monospace;
+            }
+        }
+        >ul{
+            padding-left: 40px;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', Helvetica, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', SimSun, '宋体', Heiti, '黑体', sans-serif;
+            color: #393939;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+            line-height: 1.75;
+            li{
+                list-style: disc;
+                list-style-position: inside;
+                word-break: keep-all;
+                >span{
+                    font-weight: bold;
+                }
+                >a{
+                    span{
+                        color: #003884;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }.content-container{
+        >div{
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', Helvetica, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', SimSun, '宋体', Heiti, '黑体', sans-serif;
+            color: #393939;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+            line-height: 1.75;
+            white-space: pre-wrap;
+            word-break: normal;
+            >a{
+                span{
+                    color: #003884;
+                    text-decoration: underline;
+                }
+            }
+            >em{
+                font-size: 14px;
+                font-weight: bold;
+            }
+            >span{
+                font-size: 28px;
+                font-weight: bold;
+            }
+            >img{
+                width: 620px;
+                cursor: pointer;
+                margin-top: 8px;
+                padding: 5px 0;
+            }
+            code{
+                font-family: monospace;
+            }
+        }
+        >ul{
+            padding-left: 40px;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', Helvetica, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', SimSun, '宋体', Heiti, '黑体', sans-serif;
+            color: #393939;
+            font-weight: normal;
+            font-style: normal;
+            text-decoration: none;
+            line-height: 1.75;
+            li{
+                list-style: disc;
+                list-style-position: inside;
+                word-break: keep-all;
+                >span{
+                    font-weight: bold;
+                }
+                >a{
+                    span{
+                        color: #003884;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+    .menu {
+        width: 100%;
+        font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+        >li {
+            width: 100%;
+            > div {
+                >div {
+                    width: 100%;
+                    line-height: 40px;
+                    padding: 0  15px;
+                    padding-left: 12px;
+                    box-sizing: border-box;
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin: 4px 0;
+                    color: #3089dc;
+                    border-bottom: 1px solid #c2c2c2;
+                }
+                >ul {
+                    li {
+                        width: 100%;
+                        a {
+                            display: block;
+                            line-height: 40px;
+                            font-size: 14px;
+                            padding: 4px 15px 5px 15px;
+                            box-sizing: border-box;
+                            color: rgba(0, 0, 0, 0.65);
+                            p {
+                                @include ell(false);
+                                line-height: 20px;
+                                color: grey;
+                            }
+                            &.selected {
+                                color: #3089dc;
+                                background-color: #eff1f3;
+                                p:first-child {
+                                    color: #3089dc;
+                                }
+                            }
+                            &:hover {
+                                color: #3089dc;
+                                p:first-child {
+                                    color: #3089dc;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }

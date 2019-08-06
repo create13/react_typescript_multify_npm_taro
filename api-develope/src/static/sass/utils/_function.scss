@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/**
+ * 定义全局函数
+ */
+
+@import "../utils/_variables";
+
+
+/**
+ * 适用于边框颜色等场景
+ */
+@function border-color ($border-color: $main-color) {
+    @return darken($border-color, 10%);
+}

@@ -1,0 +1,428 @@
+@charset "UTF-8";
+/**
+ * 定义全局混合宏
+ */
+
+@import "../utils/_variables";
+
+
+/**
+ * [设置文本框placeholder颜色]
+ * @param  {[字符串]} $color [颜色]
+ */
+ @mixin palceholder-color($color) {
+    &::-webkit-input-placeholder{ color: $color;}    /* 使用webkit内核的浏览器 */
+    &:-moz-placeholder{ color: $color;}                  /* Firefox版本4-18 */
+    &::-moz-placeholder{ color: $color;}                  /* Firefox版本19+ */
+    &:-ms-input-placeholder{ color: $color;}           /* IE浏览器 */
+}
+
+
+/**
+ * [设置元素圆角大小]
+ * @param  {[字符串]} $border-radius [圆角大小]
+ */
+@mixin border-radius($border-radius) {
+    -webkit-border-radius:$border-radius;
+    -moz-border-radius:$border-radius;
+    -o-border-radius:$border-radius;
+    border-radius:$border-radius;
+}
+
+
+/**
+ *设置元素的阴影
+ */
+@mixin box-shadow($h-shadow, $v-shadow, $blur, $color){
+    -moz-box-shadow: $h-shadow $v-shadow $blur $color; /* 老的 Firefox */
+    -webkit-box-shadow: $h-shadow $v-shadow $blur $color;
+    box-shadow: $h-shadow $v-shadow $blur $color;
+}
+
+/**
+ * [transition-time 动作时间]
+ * @param  {[string]} $time:0.25s [动作时间]
+ */
+@mixin transition-time($time:0.25s){
+    -webkit-transition: all $time ease-in-out;
+    -moz-transition: all $time ease-in-out;
+    -o-transition: all $time ease-in-out;
+    -ms-transition: all $time ease-in-out;
+    transition: all $time ease-in-out;
+}
+
+/**
+ * [move 元素移动效果]
+ * @param  {[number]} $s1:0 [x轴位移]
+ * @param  {[number]} $s2:0 [y轴位移]
+ */
+@mixin transform-move($s1:0,$s2:0){
+    transform:translate($s1,$s2);
+    -webkit-transform:translate($s1,$s2);
+    -moz-transform:translate($s1,$s2);
+    -o-transform:translate($s1,$s2);
+    -ms-transform:translate($s1,$s2);
+} 
+
+/**
+ * [middle-center 元素垂直居中]
+ * @return {[type]} [description]
+ */
+@mixin middle-center($height){
+    position: relative;
+    top: 50%;
+    margin-top: -$height/2;
+}
+
+/**
+ * 过渡设置
+ * @param  $transition... 过渡样式设置
+ */
+@mixin transition($transition...) {
+  @if $enable-transitions {
+    -webkit-transition:   $transition;
+    -moz-transition:      $transition;
+    -o-transition:        $transition;
+    transition:           $transition;
+  }
+}
+
+/**
+ * 背面是否可见
+ * @param  $visible 背面是否可见设置
+ */
+@mixin backface-visibility($visible:visible) {
+    -webkit-backface-visibility: $visible !important;
+    -ms-backface-visibility: $visible !important;
+    backface-visibility: $visible !important;
+}
+
+/**
+ * 设置动画名称
+ * @param  $name 动画名称
+ */
+
+@mixin animation-name($name) {
+    -webkit-animation-name: $name;
+    animation-name: $name;
+}
+
+/**
+ * 设置动画的速度曲线
+ * @param  $ease-out 默认,动画以低速开始，然后加快，在结束前变慢
+ */
+@mixin animation-timing-function($ease-out) {
+    -webkit-animation-timing-function: $ease-out;
+    animation-timing-function: $ease-out;
+}
+
+/**
+ * [ell 溢出隐藏]
+ * 本例实现的是单行文本溢出隐藏方式，暂未实现多行文本溢出隐藏出现省略号
+ * @param  {[布尔型]} $hidden:true [隐藏方式, true:直接隐藏，false:隐藏有省略号，默认值为true]
+ */
+@mixin ell($hidden:true) {
+    @if $hidden {
+        overflow:hidden;
+    } @else {
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/**
+ * [动画元素绑定]
+ * @param  {[字符串]} $aniName [规定需要绑定到选择器的 keyframe 名称]
+ */
+@mixin animation($aniName) {
+    -webkit-animation:$aniName;
+    -moz-animation:$aniName;
+    -o-animation:$aniName;
+    animation:$aniName;
+}
+
+/**
+ * [动画延迟时间]
+ * @param  {[字符串]} $time [延迟时间]
+ */
+@mixin animation-delay($time) {
+    -webkit-animation-delay:$time;
+    -moz-animation-delay:$time;
+    -o-animation-delay:$time;
+    animation-delay:$time;
+}
+
+/**
+ * [旋转角度]
+ * @param  {[字符串]} $transform [角度]
+ */
+@mixin transform($transform) {
+    -webkit-transform:$transform;
+    -moz-transform:$transform;
+    -o-transform:$transform;
+    transform:$transform;
+}
+
+/**
+ * [旋转基点位置]
+ * @param  {[列表类型]} $origin [中心点]
+ */
+@mixin transform-origin($origin) {
+    -webkit-transform-origin:$origin;
+    -moz-transform-origin:$origin;
+    -o-transform-origin:$origin;
+    transform-origin:$origin;
+}
+
+/**
+ * [元素水平居中]
+ * @param  {[字符串]} $width [元素的宽度]
+ */
+@mixin eleCenter($width) {
+    width:$width;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/**
+ * [过度样式设置]
+ * @param  {[type]} $transition... [description]
+ * @return {[type]}                [description]
+ */
+@mixin transition($transition...) {
+    -webkit-transition:   $transition;
+    -moz-transition:      $transition;
+    -o-transition:        $transition;
+    transition:           $transition;
+}
+
+/**
+ * [清除浮动]
+ */
+@mixin clearfix {
+	*height: 1%; //兼容IE以下
+    &:after {
+        clear: both;
+        content: '';
+        display: block;
+        height: 0;
+        line-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
+
+/**
+ * [禁止选中文本元素]
+ * @param  {[字符串]} $select:none [默认禁止选中文本]
+ */
+@mixin user-select($select:none) {
+    -webkit-user-select:  $select;
+    -moz-user-select:     $select;
+    -ms-user-select:      $select;
+    -o-user-select:       $select;
+    user-select:          $select;
+}
+
+/**
+ * [设置透明度]
+ * @param  {[数值型]} $opacity [不透明度]
+ */
+@mixin opacity($opacity) {
+    filter:alpha(opacity=$opacity * 100);  
+    -moz-opacity:$opacity;  
+    -khtml-opacity: $opacity;  
+    opacity: $opacity;  
+}
+
+
+/**
+ * 鼠标与按钮点击的变化
+ */
+@mixin btn-click ($bgcolor:$main-color) {
+    background-color: $bgcolor;
+    &:hover {
+        background-color: lighten($bgcolor, 2%);
+    }
+    &:active {
+        background-color: darken($bgcolor, 3%);
+    }
+}
+
+/**
+ * 禁用颜色
+ */
+@mixin disabled ($bgcolor:$main-color) {
+    background-color: darken($bgcolor, 10%);
+    @include opacity(0.5);
+}
+
+/**
+* 设置flex项的比例
+*/
+@mixin box-flex($prop:1) {
+    -moz-box-flex: $prop; 
+    -webkit-box-flex: $prop; 
+    box-flex: $prop;
+}
+
+/**
+* 设置flex项的比例
+*/
+@mixin flex($prop:1) {
+    -webkit-box-flex: $prop;      /* OLD - iOS 6-, Safari 3.1-6 */  
+    -moz-box-flex: $prop;         /* OLD - Firefox 19- */  
+    -webkit-flex: $prop;          /* Chrome */  
+    -ms-flex: $prop;              /* IE 10 */  
+    flex: $prop;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+
+/**
+ * [arrow 三角形箭头]
+ * @param  {[type]} $direction [上下左右箭头方向]
+ * @param  {[type]} $size      [箭头大小]
+ * @param  {[type]} $color     [箭头背景色]
+ */
+@mixin arrow($direction, $size, $color) {
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+    border-width: $size;
+    cursor: pointer;
+    @if $direction == top {
+        border-style: dashed dashed solid dashed;
+        border-color: transparent transparent $color transparent;
+        border-top: none;
+    }
+    @else if $direction == bottom {
+        border-style: solid dashed dashed dashed;
+        border-color: $color transparent transparent transparent;
+        border-bottom: none;
+    }
+    @else if $direction == right {
+        border-style: dashed dashed dashed solid;
+        border-color: transparent transparent transparent $color;
+        border-right: none;
+    }
+    @else if $direction == left {
+        border-style: dashed solid dashed dashed;
+        border-color: transparent $color transparent transparent;
+        border-left: none;
+    }
+}
+
+
+/** 绘制三角形
+ * @param {String} $position 
+ * @param {Number} $caret-width 三角形外宽度
+ * @param {Number} $border-width 三角形内宽度
+ * @param {String} $direction 三角形方向
+ * @param {String} $border-color 边框颜色
+ * @param {String} $background-color 背景颜色
+ * @example
+ * //SCSS
+ * .caret{
+ *   @include caret(absolute,50px,1px,bottom,red,#ccc);
+ * }
+ * //CSS
+ * .caret {
+ *    position: absolute;
+ * }
+ * .caret:before, .caret:after {
+ *   content: "";
+ * `position: absolute;
+ * }
+ * .caret:before {
+ *  top: 0;
+ *  left: 0;
+ *  border-top: 50px solid red;
+ *  border-left: 50px solid transparent;
+ *  border-right: 50px solid transparent;
+ * }
+ * .caret:after {
+ *  left: 1px;
+ *  top: 0;
+ *  border-top: 49px solid #ccc;
+ *  border-left: 49px solid transparent;
+ *  border-right: 49px solid transparent;
+ * }
+ **/
+
+@mixin caret($position,$caret-width,$border-width,$direction,$border-color,$background-color){
+  position: $position;
+  
+  &:before,
+  &:after {
+    content:"";
+    position: absolute;
+  }
+  @if $direction == top {
+    &:before {
+      top:0;
+      left: 0;
+      border-bottom: $caret-width solid $border-color;
+      border-left: $caret-width solid transparent;
+      border-right: $caret-width solid transparent;
+    }
+    &:after {
+      left: $border-width;
+      top: $border-width;
+      border-bottom: ($caret-width - $border-width) solid $background-color;
+      border-left: ($caret-width - $border-width) solid transparent;
+      border-right: ($caret-width - $border-width) solid transparent;
+    }
+  }
+  @else if $direction == right {
+    &:before {
+      top:0;
+      left: 0;
+      border-left: $caret-width solid $border-color;
+      border-top: $caret-width solid transparent;
+      border-bottom: $caret-width solid transparent;
+    }
+    &:after {
+      left: 0;
+      top: $border-width;
+      border-left: ($caret-width - $border-width) solid $background-color;
+      border-top: ($caret-width - $border-width) solid transparent;
+      border-bottom: ($caret-width - $border-width) solid transparent;
+    }
+  }
+  @else if $direction == bottom {
+    &:before {
+      top:0;
+      left: 0;
+      border-top: $caret-width solid $border-color;
+      border-left: $caret-width solid transparent;
+      border-right: $caret-width solid transparent;
+    }
+    &:after {
+      left: $border-width;
+      top: 0;
+      border-top: ($caret-width - $border-width) solid $background-color;
+      border-left: ($caret-width - $border-width) solid transparent;
+      border-right: ($caret-width - $border-width) solid transparent;
+    }
+  } 
+  @else if $direction == left {
+    &:before {
+      top:0;
+      left: 0;
+      border-right: $caret-width solid $border-color;
+      border-top: $caret-width solid transparent;
+      border-bottom: $caret-width solid transparent;
+    }
+    &:after {
+      left: $border-width;
+      top: $border-width;
+      border-right: ($caret-width - $border-width) solid $background-color;
+      border-top: ($caret-width - $border-width) solid transparent;
+      border-bottom: ($caret-width - $border-width) solid transparent;
+    }
+  }
+}

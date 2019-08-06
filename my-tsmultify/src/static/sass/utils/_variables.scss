@@ -1,0 +1,116 @@
+﻿@charset "UTF-8";
+/**
+ * 变量定义
+ */
+//
+// 选项
+// 通过启用或禁用可选功能快速修改全局样式
+//
+$enable-flex:               true  !default; // 是否支持 flex(弹性布局) 默认支持
+$enable-rounded:            true  !default; // 是否支持 border-radius(圆角) 默认支持
+$enable-box-sizing:         true  !default; // 是否支持 box-sizing(盒模型) 默认支持
+$enable-shadows:            true  !default; // 是否支持 shadows(阴影) 默认支持
+$enable-gradients:          true  !default; // 是否支持 gradients(渐变) 默认支持
+$enable-transitions:        true  !default; // 是否支持 transitions(过渡效果) 默认支持
+$enable-hover-media-query:  true  !default; // 是否支持 media query(媒体查询) 默认支持
+$enable-animation:          true  !default; // 是否支持 animation(动画) 默认支持
+$enable-appearance:         true  !default; // 是否支持 appearance(外观) 默认支持
+$enable-user-select:        true  !default; // 是否支持 user-select(设置或检索是否允许用户选中文本) 默认支持
+
+
+//
+// 间距
+// 通过修改这些来控制大多数引导元素的默认样式变量
+// 主要集中在间距
+//
+$spacer:                16px    !default;				    //16px
+$spacer-x:              $spacer !default;					//16px
+$spacer-y:              $spacer !default;					//16px
+
+
+$spacer-xs:             5px  !default;						//5px
+$spacer-sm:             10px !default;						//10px
+$spacer-lg:             15px !default;						//15px
+$spacer-ps:             20px !default;						//20px
+$spacer-le:             25px !default;						//25px
+$spacer-mx:             30px !default;						//30px
+$spacer-lmx:            40px !default;						//40px
+$spacer-smx:            50px !default;						//50px
+
+
+//边框
+$border-width:          1px !default;						//1px
+$border-xs-width:       2px !default;						//2px
+$border-sm-width:       4px !default;						//4px
+
+//边框样式
+$border-style-none:      		none;                       //无边框
+$border-style-dashed:			dashed;						//虚线边框
+$border-style-dotted:      		dotted;                     //点状边框
+$border-style-solid:            solid;                      //实线边框
+$border-style-double:           double;                     //双线边框
+
+
+//圆角
+$border-radius:          1px !default;						//1px
+$border-xs-radius:       2px !default;						//2px
+$border-sm-radius:       4px !default;                      //4px
+
+
+
+//
+// 排版
+// 字体、行间的距离（行高）、正文/标题颜色 等
+//
+$font-family-main:    			'PingFang SC' !default;
+$font-family-aux:            	'宋体' !default;
+
+$font-size-root:                14px !default;						//16px
+$font-size-xs:                  12px !default;						//12px
+$font-size-mini:			    14px !default;              		//14px
+$font-size-base:                16px !default;						//16px
+$font-size-lg:                  20px !default;						//20px
+//$font-size-ls:                14px !default;						//14px
+//$font-size-lm:                13px !default;						//13px
+
+
+$font-list : (
+	h1: 40px,											    		//40px
+	h2: 32px,														//32px
+	h3: 28px,														//28px
+	h4: 24px,														//24px
+	h5: 20px,														//20px
+	h6: 16px														//16px
+)!default;
+
+//行高
+$line-height-base:        		20px  !default;			            //20px
+$line-height:             		1.5   !default;
+$line-height-lg:          		(4/3) !default;
+
+
+//主色
+$main-color:			        #297E80 !default;			        //主色调
+
+//辅助色
+$orange-color:					#FF5722 !default;					//橙色
+$blue-color:					#1890FF !default;					//蓝色
+$yellow-color:					#FAD337 !default;					//黄色
+$red-color:						#FF1A2E !default;					//红色
+$green-color:					#36C626 !default;					//绿色
+$pink-color:					#F2637B !default;					//粉色
+$purple-color:					#975FE4 !default;					//紫色
+//灰度色
+$title-color: 			    	#262626 !default;					//字体颜色 标题图出
+$font-color:					#595959 !default;					//正文
+$secfont-color:					#8C8C8C !default;					//次级文字 提醒
+$disfont-color:					#BFBFBF !default;					//提示文字 禁用
+$border-color:					#D9D9D9 !default;					//正文
+
+//交互色
+$split-bgcolor:					#E8E8E8 !default; 					//分割线交互底色
+$block-bgcolor:					#F5F5F5 !default;					//区块底色
+$theadcolor:					#FaFaFa !default; 					//表头 区块底色
+$bgcolor:						#F0F2F5  !default;					//整体底色
+$white:							#fff !default; 						//白色
+$black:							#000 !default;						//黑色

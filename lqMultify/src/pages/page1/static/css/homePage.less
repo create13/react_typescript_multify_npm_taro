@@ -1,0 +1,77 @@
+.home-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    .ant-layout {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        .ant-layout-sider {
+            background-color: #fff;
+            max-width: 240px!important;
+            min-width: 240px!important;
+        }
+    }
+    .box-side {
+        width: 100%;
+        height: 100%;
+        .ant-menu {
+            border-bottom: 0;
+            margin-top: 9px;
+            border-right: none!important;
+            .ant-menu-submenu {
+                .ant-menu-submenu-title {
+                    padding-right: 66px!important;
+                    padding-left: 0px!important;
+                    .ant-menu-submenu-arrow {
+                        right: 21px;
+                    }
+                }
+            }
+        }
+    }
+    .ant-layout-header {
+        position: relative;
+        padding: 0 14px;
+        .box-header {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            .layout-header {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .left-content {
+                    width: 50%;
+                    text-align: left;
+                    .person-info {
+                        color: #FFF;
+                        display: inline-block;
+                        margin-left: 10px;
+                    }
+                }
+                .ant-avatar {
+                    width: 50px!important;
+                    height: 50px!important;
+                    line-height: 50px!important;
+                }
+                .ant-input {
+                    background-color: #1A2D3E;
+                }
+                .ant-input-search-icon {
+                    color: #fff;
+                }
+                .ant-menu-horizontal {
+                    line-height: 62px;
+                    background-color: #000;
+                    color: #fff;
+                    margin-left: 40px;
+                }
+            }
+        }
+    }
+} 

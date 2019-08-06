@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/**
+ * 定义公用占位符
+ */
+@import "../utils/_variables";
+
+/**
+ * [支持IE8以下兼容inline-block属性值]
+ */
+%dib {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+/**
+ * [定义文本缩进]
+ */
+%text-indent {
+	font-size: 0;
+	text-indent: -99999rem;
+	overflow: hidden;
+}
+
+/**
+ * [定义并排块显示]
+ */
+%box-sizing {
+	-webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -o-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+/**
+* [定义弹性布局]
+*/
+%display-flex {
+    display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */  
+    display: -moz-box; /* Firefox 17- */  
+    display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */  
+    display: -moz-flex; /* Firefox 18+ */  
+    display: -ms-flexbox; /* IE 10 */  
+    display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */  
+}
+
+
+/**
+ * [iconfont模块]
+ */
+ %iconfont {
+	font-family:"iconfont" !important;
+    font-style:normal;    
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
